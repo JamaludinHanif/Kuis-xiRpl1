@@ -136,7 +136,7 @@ const Hasil = () => {
                             <p className="">
                               <BsCheckLg color="green" size={25} />
                             </p>
-                            <p className="ml-7">{Akurasi}/20</p>
+                            <p className="ml-7">{Akurasi}/15</p>
                           </div>
                         </div>
                         <div className="bg-purple-500 py-2 rounded-xl px-4">
@@ -145,7 +145,7 @@ const Hasil = () => {
                             <p className="">
                               <BsXLg color="red" size={25} />
                             </p>
-                            <p className="ml-7">{20 - Akurasi}/20</p>
+                            <p className="ml-7">{15 - Akurasi}/15</p>
                           </div>
                         </div>
                       </div>
@@ -188,7 +188,7 @@ const Hasil = () => {
                     </p>
                     <div className="bg-white border border-blue-600 w-2/12 m-auto rounded-lg py-2">
                       <p className="font-semibold text-blue-600 text-lg text-center">
-                        {Skor < 50 ? (
+                        {Skor < 40 ? (
                           <>Yawdah sihh 🤓🤏</>
                         ) : Skor < 60 ? (
                           <>Cihuyyy 😁🤟</>

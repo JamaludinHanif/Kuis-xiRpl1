@@ -55,7 +55,7 @@ const LandingPage = () => {
                 onClick={() => navigate("/login")}
                 className="bg-white w-48 hover:opacity-80 border border-black rounded-lg py-3 px-4 cursor-pointer"
               >
-                <p className="font-semibold text-center">Sama aja</p>
+                <p className="font-semibold text-center">Lets Gooo</p>
               </div>{" "}
             </div>
           </div>
