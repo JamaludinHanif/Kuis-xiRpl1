@@ -76,7 +76,7 @@ const Hasil = () => {
   }, [pathname]);
   return (
     <>
-      <div className="body h-screen py-10">
+      <div className="body h-screen">
         {IsLoading ? (
           <>
             <Loading IsLoading={IsLoading} />
@@ -84,7 +84,7 @@ const Hasil = () => {
         ) : (
           <>
             <div className="w-10/12 m-auto">
-              <div className="font-Silkscreen text-white">
+              <div className="font-Silkscreen text-white pt-6">
                 <p className="text-3xl text-center">
                   Selamat {Nama}, karena telah menyelesaikan Kuis {Level}
                 </p>
@@ -235,12 +235,18 @@ const Hasil = () => {
       >
         <div className="">
           <div className="mt-7">
-            <p className="text-blue-600 text-center text-3xl font-semibold">
+            <p className="text-blue-600 text-center text-2xl font-semibold">
               Akhir Kata
             </p>
           </div>
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+            molestias error doloribus, minima, sequi sapiente nostrum earum
+            assumenda debitis, non atque natus cumque voluptates. Error possimus
+            eos alias officiis in.
+          </p>
           <div
-            // onClick={() => Navigasi()}
+            onClick={() => {Restart(), setOpen(!open)}}
             className="bg-blue-600 py-2 rounded-lg mt-10 hover:opacity-80 cursor-pointer"
           >
             <p className="text-white font-semibold text-center text-lg">

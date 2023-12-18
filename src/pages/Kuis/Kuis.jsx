@@ -74,7 +74,7 @@ const Kuis = () => {
         answer == Data?.[Array]?.jawaban ||
         answer == Data?.[Array]?.jawaban2
       ) {
-        setProgres(Progres + 6.7);
+        setProgres(Progres + 7);
         setArray(Array + 1);
         setAkurasi(Akurasi + 1);
         setNomor(Nomor + 1);
@@ -83,9 +83,9 @@ const Kuis = () => {
         console.warn("benar");
         Swal.fire({
           title: `Jawaban Kamu Benar`,
-          html: `Skor kamu + ${Data?.[Array]?.point} <br><br> Jawaban yang Benar adalah ${Data?.[Array]?.jawaban}`,
-          width: 600,
-          timer: 2000,
+          html: `Skor kamu + ${Data?.[Array]?.point} <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
+          width: 500,
+          timer: 2500,
           timerProgressBar: true,
           padding: "2em",
           showConfirmButton: false,
@@ -93,24 +93,24 @@ const Kuis = () => {
           background: "#fff url(/images/trees.png)",
           backdrop: `
               rgba(0,0,123,0.4)
-              url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWFzMGFkamF3NHh2Z3Zmd3R4OTFocDY4MXJ0OGdibTAyZ2NwazgyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Jen9ZDvhrJabcI8ppu/giphy.gif")
+              url("")
               left top
               no-repeat
             `,
         });
       } else {
-        setProgres(Progres + 6.7);
+        setProgres(Progres + 7);
         setArray(Array + 1);
         setAkurasi(Akurasi + 0);
         setNomor(Nomor + 1);
-        setPoint(Point - 3);
+        setPoint(Point - 2);
         setJawaban("");
         console.warn("salah");
         Swal.fire({
           title: `Jawaban Kamu Salah`,
-          html: `Skor kamu - ${3} <br><br> Jawaban yang Benar adalah ${Data?.[Array]?.jawaban}`,
-          width: 600,
-          timer: 3000,
+          html: `Skor kamu - 2 <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
+          width: 500,
+          timer: 2500,
           timerProgressBar: true,
           padding: "2em",
           showConfirmButton: false,
@@ -118,7 +118,7 @@ const Kuis = () => {
           background: "#fff url(/images/trees.png)",
           backdrop: `
               rgba(0,0,123,0.4)
-              url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXB4b2ZncDZiOHR5aWtidG16cXJiNHJsejg3Mm9taWU5a2NkdWkydCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iHWzgA65wDpNOq9sK7/giphy.gif")
+              url("")
               left top
               no-repeat
             `,
@@ -186,16 +186,16 @@ const Kuis = () => {
           <div className="flex justify-center items-center">
             {Nomor > 15 ? (
               <>
-                <div className="w-4/12 mt-20 bg-ping p-6">
-                  <p className="font-semibold text-biru text-center text-xl">
+                <div className="w-4/12 mt-20 bg-kotak rounded-lg p-6">
+                  <p className="font-semibold text-white text-center text-xl">
                     Kuis Selesai
                   </p>
-                  <p className="text-center my-2 text-lg">
-                    Terimakasih Sudah Mengikuti Kuis Ini, Bahagia selalu yaa
+                  <p className="text-center text-slate-100 my-2 text-lg">
+                    Terimakasih Sudah Mengikuti Kuis Ini
                   </p>
                   <div
                     onClick={() => done()}
-                    className="bg-blue-600 hover:opacity-80 cursor-pointer mt-5 py-2 flex flex-row justify-center items-center"
+                    className="bg-blue-600 hover:opacity-80 cursor-pointer mt-10 rounded-lg py-2 flex flex-row justify-center items-center"
                   >
                     <p className="text-center font-semibold text-white">
                       Lihat Hasil
@@ -239,7 +239,7 @@ const Kuis = () => {
                     <div className="mt-5">
                       <input
                         type="text"
-                        required
+                        // required
                         placeholder="Masukan Jawaban Yang Menurut Kamu Benar.."
                         value={Jawaban}
                         onChange={(e) => setJawaban(e.target.value)}

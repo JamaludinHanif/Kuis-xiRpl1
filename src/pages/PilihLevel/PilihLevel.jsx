@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Modal } from "antd";
+import { Modal, message } from "antd";
 import "./style.css";
 import Loading from "../../components/Loading/Loading";
 
@@ -32,11 +32,15 @@ const PilihLevel = () => {
   const { pathname } = useLocation();
 
   const Navigasi = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      navigate(`/kuis/level-${Jenis}`);
-      setIsLoading(false);
-    }, 2000);
+    if (Jenis == 2 || Jenis == 3) {
+      message.info("Level masih dalam tahap pengembangan");
+    } else {
+      setIsLoading(true);
+      setTimeout(() => {
+        navigate(`/kuis/level-${Jenis}`);
+        setIsLoading(false);
+      }, 2000);
+    }
   };
 
   useEffect(() => {
@@ -47,34 +51,33 @@ const PilihLevel = () => {
     <>
       {IsLoading ? (
         <>
-        <div className="body">
-
-          <Loading IsLoading={IsLoading} />
-        </div>
+          <div className="body">
+            <Loading IsLoading={IsLoading} />
+          </div>
         </>
       ) : (
         <>
           <div className="h-screen body flex items-center justify-center">
             <div className="">
-              <p className="text-5xl font-bold font-Silkscreen">
+              <p className="text-5xl font-bold text-white font-Silkscreen">
                 Silahkan Pilih Level Kuis
               </p>
               <div className="flex justify-between mt-24">
                 <div
                   onClick={() => showModal(1)}
-                  className="w-40 h-36 bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="w-40 h-36 rounded-xl shadow-lg bg-ping flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">1</p>
                 </div>
                 <div
                   onClick={() => showModal(2)}
-                  className="w-40 h-36 bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="w-40 h-36 rounded-xl shadow-lg bg-blue-800 flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">2</p>
                 </div>
                 <div
                   onClick={() => showModal(3)}
-                  className="w-40 h-36 bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="w-40 h-36 rounded-xl shadow-lg bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">3</p>
                 </div>

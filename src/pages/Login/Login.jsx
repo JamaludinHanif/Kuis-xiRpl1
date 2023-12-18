@@ -4,6 +4,19 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import "./style.css";
 import { message } from "antd";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+
+const antIcon = (
+  <LoadingOutlined
+    style={{
+      fontSize: 16,
+
+      color: "white",
+    }}
+    spin
+  />
+);
 
 const Login = () => {
   // react router dom
@@ -14,20 +27,30 @@ const Login = () => {
   const [Nama, setNama] = useState();
   const [Kelas, setKelas] = useState();
   const [IsLoading, setIsLoading] = useState(false);
+  const [IsLoading2, setIsLoading2] = useState(false);
 
   //   function login
   const login = () => {
-    if (Nama == undefined || Nama == "" || Kelas == undefined || Kelas == "") {
-      message.warning("Silahkan isi data dengan lengkap");
-    } else {
-      sessionStorage.setItem("nama", Nama);
-      sessionStorage.setItem("kelas", Kelas);
-      setIsLoading(true);
-      setTimeout(() => {
-        navigate("/rules");
-        setIsLoading(false);
-      }, 2000);
-    }
+    setIsLoading2(true);
+    setTimeout(() => {
+      setIsLoading2(false);
+      if (
+        Nama == undefined ||
+        Nama == "" ||
+        Kelas == undefined ||
+        Kelas == ""
+      ) {
+        message.warning("Silahkan isi data dengan lengkap");
+      } else {
+        sessionStorage.setItem("nama", Nama);
+        sessionStorage.setItem("kelas", Kelas);
+        setIsLoading(true);
+        setTimeout(() => {
+          navigate("/rules");
+          setIsLoading(false);
+        }, 2000);
+      }
+    }, 1500);
   };
 
   useEffect(() => {
@@ -56,7 +79,7 @@ const Login = () => {
                 <div className="">
                   <input
                     type="text"
-                    required
+                    // required
                     placeholder="Masukan Nama Lengkap Kamu"
                     value={Nama}
                     onChange={(e) => setNama(e.target.value)}
@@ -66,22 +89,30 @@ const Login = () => {
                 <div className="mt-3">
                   <input
                     type="text"
-                    required
+                    // required
                     placeholder="Masukan Kelas Kamu"
                     value={Kelas}
                     onChange={(e) => setKelas(e.target.value)}
                     className="w-full bg-ungu text-sm rounded-lg outline-none shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-sm disabled:bg-gray-200 focus:ring-2 focus:ring-inset focus:ring-blue-600 py-3 px-2 lg:p-3"
                   />
                 </div>{" "}
-                <div className="w-24 mx-auto">
+                <div className="w-32 mx-auto">
                   <button
-                    onClick={() => login()}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      login();
+                    }}
                     type="submit"
-                    className="bg-blue-600 w-full hover:opacity-80 rounded-lg cursor-pointer mt-10 py-2"
+                    className="bg-blue-600 w-full hover:opacity-80 rounded-lg cursor-pointer mt-10 py-2 flex justify-center items-center flex-row"
                   >
                     <p className="text-center font-semibold text-white">
                       Login
                     </p>
+                    {IsLoading2 ? (
+                      <>
+                        <Spin indicator={antIcon} className="ml-7" />
+                      </>
+                    ) : null}
                   </button>
                 </div>
               </form>

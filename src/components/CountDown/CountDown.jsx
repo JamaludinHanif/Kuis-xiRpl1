@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 const CountDownOtp = ({Akurasi, Point, Level}) => {
-  const [seconds, setSeconds] = useState(300);
+  const [seconds, setSeconds] = useState(3000);
 
   // react roter dom
   const navigate = useNavigate();
