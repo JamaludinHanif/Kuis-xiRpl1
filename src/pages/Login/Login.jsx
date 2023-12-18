@@ -67,11 +67,11 @@ const Login = () => {
         <>
           <div className="text-white">
             <div className="font-Silkscreen mb-16">
-              <p className="text-center font-bold text-4xl text-white">
+              <p className="text-center font-bold lg:text-4xl text-2xl text-white">
                 Masukan Data Kalian
               </p>
             </div>
-            <div className="w-10/12 m-auto lg:w-10/12 bg-kotak rounded-xl pt-6 pb-6 px-6">
+            <div className="w-full m-auto lg:w-10/12 bg-kotak rounded-xl pt-6 pb-6 px-6">
               <p className="text-center w-16 m-auto font-semibold text-white mb-9 pb-0.5 border-b-4 border-white">
                 Login
               </p>

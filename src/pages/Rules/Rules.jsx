@@ -25,7 +25,7 @@ const Rules = () => {
   }, [pathname]);
 
   return (
-    <div className="h-screen body flex justify-center items-center">
+    <div className="h-screen body py-10 flex justify-center items-center">
       {IsLoading ? (
         <>
           <Loading IsLoading={IsLoading} />
@@ -37,7 +37,7 @@ const Rules = () => {
               <p className="text-red-600 font-semibold text-2xl mb-5">
                 Peraturan :
               </p>
-              <p className="">
+              <p className="text-sm">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Expedita optio libero modi nulla, quos minima nostrum voluptate
                 reprehenderit rerum sunt similique. Impedit, perferendis

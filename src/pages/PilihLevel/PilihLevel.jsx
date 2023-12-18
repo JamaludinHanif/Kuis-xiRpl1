@@ -59,25 +59,25 @@ const PilihLevel = () => {
         <>
           <div className="h-screen body flex items-center justify-center">
             <div className="">
-              <p className="text-5xl font-bold text-white font-Silkscreen">
+              <p className="lg:text-5xl text-xl text-center font-bold text-white font-Silkscreen">
                 Silahkan Pilih Level Kuis
               </p>
-              <div className="flex justify-between mt-24">
+              <div className="lg:flex lg:flex-row lg:justify-between sm:flex-col lg:mt-24 mt-14">
                 <div
                   onClick={() => showModal(1)}
-                  className="w-40 h-36 rounded-xl shadow-lg bg-ping flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="w-40 h-36 m-auto mt-8 rounded-xl shadow-lg bg-ping flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">1</p>
                 </div>
                 <div
                   onClick={() => showModal(2)}
-                  className="w-40 h-36 rounded-xl shadow-lg bg-blue-800 flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="w-40 h-36 m-auto mt-8 rounded-xl shadow-lg bg-blue-800 flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">2</p>
                 </div>
                 <div
                   onClick={() => showModal(3)}
-                  className="w-40 h-36 rounded-xl shadow-lg bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="w-40 h-36 m-auto mt-8 rounded-xl shadow-lg bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">3</p>
                 </div>

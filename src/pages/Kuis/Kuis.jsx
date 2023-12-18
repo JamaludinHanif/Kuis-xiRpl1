@@ -67,64 +67,64 @@ const Kuis = () => {
     if (Jawaban == undefined || Jawaban == "") {
       message.warning("silahkan isi jawaban kamu");
     } else {
-    setIsLoading2(true);
-    setTimeout(() => {
-      setIsLoading2(false);
-      if (
-        answer == Data?.[Array]?.jawaban ||
-        answer == Data?.[Array]?.jawaban2
-      ) {
-        setProgres(Progres + 7);
-        setArray(Array + 1);
-        setAkurasi(Akurasi + 1);
-        setNomor(Nomor + 1);
-        setPoint(Point + Data?.[Array]?.point);
-        setJawaban("");
-        console.warn("benar");
-        Swal.fire({
-          title: `Jawaban Kamu Benar`,
-          html: `Skor kamu + ${Data?.[Array]?.point} <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
-          width: 500,
-          timer: 2500,
-          timerProgressBar: true,
-          padding: "2em",
-          showConfirmButton: false,
-          color: "#716add",
-          background: "#fff url(/images/trees.png)",
-          backdrop: `
+      setIsLoading2(true);
+      setTimeout(() => {
+        setIsLoading2(false);
+        if (
+          answer == Data?.[Array]?.jawaban ||
+          answer == Data?.[Array]?.jawaban2
+        ) {
+          setProgres(Progres + 7);
+          setArray(Array + 1);
+          setAkurasi(Akurasi + 1);
+          setNomor(Nomor + 1);
+          setPoint(Point + Data?.[Array]?.point);
+          setJawaban("");
+          console.warn("benar");
+          Swal.fire({
+            title: `Jawaban Kamu Benar`,
+            html: `Skor kamu + ${Data?.[Array]?.point} <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
+            width: 500,
+            timer: 2500,
+            timerProgressBar: true,
+            padding: "2em",
+            showConfirmButton: false,
+            color: "#716add",
+            background: "#fff url(/images/trees.png)",
+            backdrop: `
               rgba(0,0,123,0.4)
               url("")
               left top
               no-repeat
             `,
-        });
-      } else {
-        setProgres(Progres + 7);
-        setArray(Array + 1);
-        setAkurasi(Akurasi + 0);
-        setNomor(Nomor + 1);
-        setPoint(Point - 2);
-        setJawaban("");
-        console.warn("salah");
-        Swal.fire({
-          title: `Jawaban Kamu Salah`,
-          html: `Skor kamu - 2 <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
-          width: 500,
-          timer: 2500,
-          timerProgressBar: true,
-          padding: "2em",
-          showConfirmButton: false,
-          color: "#716add",
-          background: "#fff url(/images/trees.png)",
-          backdrop: `
+          });
+        } else {
+          setProgres(Progres + 7);
+          setArray(Array + 1);
+          setAkurasi(Akurasi + 0);
+          setNomor(Nomor + 1);
+          setPoint(Point - 2);
+          setJawaban("");
+          console.warn("salah");
+          Swal.fire({
+            title: `Jawaban Kamu Salah`,
+            html: `Skor kamu - 2 <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
+            width: 500,
+            timer: 2500,
+            timerProgressBar: true,
+            padding: "2em",
+            showConfirmButton: false,
+            color: "#716add",
+            background: "#fff url(/images/trees.png)",
+            backdrop: `
               rgba(0,0,123,0.4)
               url("")
               left top
               no-repeat
             `,
-        });
-      }
-    }, 1000);
+          });
+        }
+      }, 1000);
     }
 
     console.log("ini jawabn yang benar", Data?.[Array]?.jawaban);
@@ -156,16 +156,16 @@ const Kuis = () => {
 
   return (
     <>
-      <div className="body h-screen py-14">
-        <div className="w-9/12 m-auto">
-          <div className="flex w-full flex-row justify-center items-center">
-            <div className="bg-primary3 font-Silkscreen w-1/3 text-xl text-white font-semibold p-4">
+      <div className="body h-screen lg:py-14 pt-5">
+        <div className="lg:w-9/12 w-11/12 m-auto">
+          <div className="lg:flex flex flex-col w-full lg:flex-row justify-center items-center">
+            <div className="bg-primary3 font-Silkscreen lg:w-1/3 w-full lg:text-xl text-white font-semibold p-4">
               <p className="">Nama : {name}</p>
               <p className="">Kelas : {kelas}</p>
               <p className="">Skor Kamu : {Point}</p>
             </div>
 
-            <div className="w-1/3 font-Silkscreen flex flex-col items-center justify-center mx-auto">
+            <div className="w-1/3 font-Silkscreen lg:flex hidden flex-col items-center justify-center mx-auto">
               <p className="text-white font-semibold text-xl mb-4">Progress</p>
               <Progress
                 type="circle"
@@ -175,7 +175,28 @@ const Kuis = () => {
               />
             </div>
 
-            <div className="w-1/3 flex flex-col items-center justify-end mx-auto">
+            <div className="flex lg:hidden flex-row w-full justify-between mt-8 items-center">
+              <div className="w-1/3 font-Silkscreen flex lg:hidden flex-col items-center justify-center mx-auto">
+                <p className="text-white font-semibold text-xl mb-4">
+                  Progress
+                </p>
+                <Progress
+                  type="circle"
+                  style={{ color: "white" }}
+                  trailColor="white"
+                  percent={Progres}
+                  size={60}
+                />
+              </div>
+              <div className="w-1/3 flex lg:hidden items-center mx-auto">
+                {/* <p className="text-white font-Silkscreen font-semibold text-xl mb-4">
+                  Selesaikan Dalam :
+                </p> */}
+                <CountdownApp Akurasi={Akurasi} Point={Point} Level={level} />
+              </div>
+            </div>
+
+            <div className="w-1/3 lg:flex hidden flex-col items-center justify-end mx-auto">
               <p className="text-white font-Silkscreen font-semibold text-xl mb-4">
                 Selesaikan Dalam :
               </p>
@@ -186,7 +207,7 @@ const Kuis = () => {
           <div className="flex justify-center items-center">
             {Nomor > 15 ? (
               <>
-                <div className="w-4/12 mt-20 bg-kotak rounded-lg p-6">
+                <div className="lg:w-4/12 w-11/12 mt-20 bg-kotak rounded-lg p-6">
                   <p className="font-semibold text-white text-center text-xl">
                     Kuis Selesai
                   </p>
@@ -210,7 +231,7 @@ const Kuis = () => {
               </>
             ) : (
               <>
-                <div className="w-4/12 mt-20 bg-kotak opacity-95 text-white p-6">
+                <div className="lg:w-4/12 w-11/12 lg:mt-20 mt-10 bg-kotak opacity-95 text-white p-6">
                   <p className="font-semibold text-white mb-4 border-b-4 inline-block">
                     {Data?.[Array]?.type == 1 ? (
                       <>Pertanyaan Pengetahuan Umum :</>
@@ -243,7 +264,7 @@ const Kuis = () => {
                         placeholder="Masukan Jawaban Yang Menurut Kamu Benar.."
                         value={Jawaban}
                         onChange={(e) => setJawaban(e.target.value)}
-                        className="w-full text-sm bg-ungu rounded-lg outline-none shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-sm disabled:bg-gray-200 focus:ring-2 focus:ring-inset focus:ring-blue-600 py-3 px-2 lg:p-3"
+                        className="w-full text-sm bg-ungu rounded-lg outline-none shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-xs lg:placeholder:text-sm disabled:bg-gray-200 focus:ring-2 focus:ring-inset focus:ring-blue-600 py-3 px-2 lg:p-3"
                       />
                     </div>{" "}
                     <button

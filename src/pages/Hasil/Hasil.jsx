@@ -83,12 +83,12 @@ const Hasil = () => {
           </>
         ) : (
           <>
-            <div className="w-10/12 m-auto">
+            <div className="lg:w-10/12 w-11/12 m-auto">
               <div className="font-Silkscreen text-white pt-6">
-                <p className="text-3xl text-center">
+                <p className="lg:text-3xl text-lg text-center">
                   Selamat {Nama}, karena telah menyelesaikan Kuis {Level}
                 </p>
-                <p className="text-2xl text-center mt-5">
+                <p className="lg:text-3xl text-lg text-center mt-5">
                   Semoga bermanfaat bagi kita semua
                 </p>
               </div>
@@ -98,7 +98,7 @@ const Hasil = () => {
                 <>
                   <div
                     onClick={() => Loading2()}
-                    className="w-2/12 m-auto rounded-lg py-3 mt-10 bg-kotak cursor-pointer hover:opacity-80"
+                    className="lg:w-2/12 w-1/2 m-auto rounded-lg py-3 mt-7 bg-kotak cursor-pointer hover:opacity-80"
                   >
                     <p className="text-white font-semibold text-center">
                       Lihat Akurasi
@@ -109,9 +109,9 @@ const Hasil = () => {
                 <>
                   <div
                     onClick={() => Loading2()}
-                    className="w-2/12 m-auto rounded-lg py-3 mt-10 cursor-pointer hover:opacity-80"
+                    className="lg:w-2/12 w-1/2 m-auto rounded-lg py-3 mt-7 cursor-pointer hover:opacity-80"
                   >
-                    <p className="text-white text-lg font-semibold text-center">
+                    <p className="text-white text-base font-semibold text-center">
                       Nilai Akurasi Kamu :
                     </p>
                   </div>
@@ -129,7 +129,7 @@ const Hasil = () => {
                     <></>
                   ) : (
                     <>
-                      <div className="flex w-1/2 m-auto mt-7 flex-row justify-evenly font-semibold text-white text-lg">
+                      <div className="flex lg:w-1/2 w-full m-auto mt-5 flex-row justify-evenly font-semibold text-white text-lg">
                         <div className="bg-purple-500 py-2 rounded-xl px-4 ">
                           <p className="text-center mb-2">Benar :</p>
                           <div className="flex flex-row items-center">
@@ -155,15 +155,15 @@ const Hasil = () => {
               )}
 
               {/* skor kamu */}
-              <div className="mt-20">
-                <div className="font-Silkscreen text-3xl text-center font-semibold text-white">
+              <div className="lg:mt-20 mt-10">
+                <div className="font-Silkscreen lg:text-3xl text-lg text-center font-semibold text-white">
                   <p className="">Skor Kamu : {Skor}</p>
                 </div>
                 {Hidden2 ? (
                   <>
                     <div
                       onClick={() => Loading3()}
-                      className="w-2/12 m-auto rounded-lg py-3 mt-7 bg-kotak cursor-pointer hover:opacity-80 flex flex-row justify-center items-center"
+                      className="lg:w-2/12 w-1/2 m-auto rounded-lg py-3 lg:mt-7 mt-6 bg-kotak cursor-pointer hover:opacity-80 flex flex-row justify-center items-center"
                     >
                       <p className="text-white font-semibold text-center">
                         Tukarkan
@@ -183,16 +183,16 @@ const Hasil = () => {
                   <></>
                 ) : (
                   <>
-                    <p className="w-2/12 m-auto font-semibold text-white font-Silkscreen mt-7 mb-2">
+                    <p className="lg:w-2/12 w-1/2 m-auto text-sm font-semibold text-white font-Silkscreen lg:mt-7 mt-3 mb-2">
                       Hadiah Kamu :
                     </p>
-                    <div className="bg-white border border-blue-600 w-2/12 m-auto rounded-lg py-2">
+                    <div className="bg-white border border-blue-600 lg:w-2/12 w-1/2 m-auto rounded-lg py-2">
                       <p className="font-semibold text-blue-600 text-lg text-center">
                         {Skor < 40 ? (
                           <>Yawdah sihh 🤓🤏</>
                         ) : Skor < 60 ? (
                           <>Cihuyyy 😁🤟</>
-                        ) : Skor > 70 ? (
+                        ) : Skor > 60 ? (
                           <>Gacor Kang 😎👍</>
                         ) : null}
                       </p>
@@ -204,7 +204,7 @@ const Hasil = () => {
               {/* option button */}
               {Hidden == false && Hidden2 == false ? (
                 <>
-                  <div className="w-1/2 m-auto mt-16 flex flex-row font-semibold text-white justify-between">
+                  <div className="lg:w-1/2 w-4/5 m-auto mt-16 flex flex-row font-semibold text-white justify-between">
                     <div
                       onClick={() => showModal()}
                       className="bg-ping py-2 px-6 cursor-pointer rounded-lg hover:opacity-80"
