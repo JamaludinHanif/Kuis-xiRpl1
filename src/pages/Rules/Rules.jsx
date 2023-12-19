@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import { notification } from "antd";
 
 const Rules = () => {
   // react router dom
@@ -32,7 +33,7 @@ const Rules = () => {
         </>
       ) : (
         <>
-          <div className="w-10/12 lg:w-5/12 bg-white p-6">
+          <div className="w-11/12 lg:w-5/12 bg-white p-4 lg:p-6">
             <div className="">
               <p className="text-red-600 font-semibold text-2xl mb-5">
                 Peraturan :
@@ -69,6 +70,9 @@ const Rules = () => {
                 </p>
                 <p className="mt-2">
                   10. Selesaikan Kuis Sebelum waktu Habis
+                </p>
+                <p className="mt-2">
+                  11. Kalau kamu gak tau / nyerah, cukup ketik <span className="font-semibold">Gak tau</span> atau <span className="font-semibold">Pas</span>
                 </p>
               </div>
             </div>

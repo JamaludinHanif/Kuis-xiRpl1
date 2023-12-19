@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Progress, Spin, message } from "antd";
+import { Progress, Spin, message, notification } from "antd";
 import { Data1 } from "../../API/Data1";
 import { Data2 } from "../../API/Data2";
 import { Data3 } from "../../API/Data3";
@@ -25,6 +25,16 @@ const Kuis = () => {
   const { level } = useParams();
   console.log("ini param", level);
   const { pathname } = useLocation();
+
+  // notif pas
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = (placement) => {
+    api.info({
+      message: `Mau Nyerah / PAS ?`,
+      description: 'ketik "Gak tau" atau "Pas", kalau mau Nyerah/Pas',
+      placement,
+    });
+  };
 
   // session storage
   const name = sessionStorage.getItem("nama");
@@ -52,7 +62,7 @@ const Kuis = () => {
     } else if (param == "level-2") {
       setData(Data2);
       setMinus(2);
-      setPoint(8)
+      setPoint(8);
       setTimer(300);
     } else if (param == "level-3") {
       setData(Data3);
@@ -101,6 +111,31 @@ const Kuis = () => {
             padding: "2em",
             showConfirmButton: false,
             color: "#198754",
+            background: "#fff url(/images/trees.png)",
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("")
+              left top
+              no-repeat
+            `,
+          });
+        } else if (answer == "gaktau" || answer == "pas") {
+          setProgres(Progres + 7);
+          setArray(Array + 1);
+          setAkurasi(Akurasi + 0);
+          setNomor(Nomor + 1);
+          setPoint(Point - 1);
+          setJawaban("");
+          console.warn("pasrah");
+          Swal.fire({
+            title: `Kok nyerah ??`,
+            html: `Skor kamu - 1 <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
+            width: 500,
+            timer: 2500,
+            timerProgressBar: true,
+            padding: "2em",
+            showConfirmButton: false,
+            color: "#ffc107",
             background: "#fff url(/images/trees.png)",
             backdrop: `
               rgba(0,0,123,0.4)
@@ -162,6 +197,7 @@ const Kuis = () => {
 
   useEffect(() => {
     getLevel(level);
+    openNotification("topLeft");
     window.scrollTo(0, 0);
   }, [pathname]);
 
@@ -169,6 +205,7 @@ const Kuis = () => {
     <>
       <div className="body h-screen lg:py-14 pt-5">
         <div className="lg:w-9/12 w-11/12 m-auto">
+          {contextHolder}
           <div className="lg:flex flex flex-col w-full lg:flex-row justify-center items-center">
             <div className="bg-primary3 font-Silkscreen lg:w-1/3 w-full lg:text-xl text-white font-semibold p-4">
               <p className="">Nama : {name}</p>
@@ -254,7 +291,7 @@ const Kuis = () => {
                     ) : null}
                   </p>
                   <div className="flex flex-row justify-between">
-                    <div className="h-7 w-1/12 border border-white rounded-full mb-3 flex items-center justify-center">
+                    <div className="h-7 w-1/12 px-3 lg:px-0 border border-white rounded-full mb-3 flex items-center justify-center">
                       <p className="font-semibold text-sm">
                         {Data?.[Array]?.id}
                       </p>

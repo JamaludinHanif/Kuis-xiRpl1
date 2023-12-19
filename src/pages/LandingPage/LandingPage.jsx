@@ -52,10 +52,10 @@ const LandingPage = () => {
                 </p>
               </div>
               <div
-                onClick={() => navigate("/login")}
-                className="bg-white lg:w-48 w-32 hover:opacity-80 border border-black rounded-lg py-3 px-4 cursor-pointer"
+                onClick={() => navigate("/about")}
+                className="bg-white lg:w-48 w-32 hover:opacity-80 border text-sm border-black rounded-lg py-3 px-4 cursor-pointer"
               >
-                <p className="font-semibold text-center">Lets Gooo</p>
+                <p className="font-semibold text-center">Tentang Kami</p>
               </div>{" "}
             </div>
           </div>
