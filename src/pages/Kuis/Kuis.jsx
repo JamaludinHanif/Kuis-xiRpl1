@@ -33,21 +33,32 @@ const Kuis = () => {
   // state
   const [Progres, setProgres] = useState(0);
   const [IsLoading2, setIsLoading2] = useState(false);
+  const [Minus, setMinus] = useState(0);
   const [Array, setArray] = useState(0);
   const [Akurasi, setAkurasi] = useState(0);
   const [Nomor, setNomor] = useState(1);
   const [Point, setPoint] = useState(0);
   const [Jawaban, setJawaban] = useState("");
+  const [Timer, setTimer] = useState(0);
 
   const [Data, setData] = useState([]);
 
   const getLevel = (param) => {
     if (param == "level-1") {
       setData(Data1);
+      setMinus(2);
+      setPoint(5);
+      setTimer(360);
     } else if (param == "level-2") {
       setData(Data2);
+      setMinus(2);
+      setPoint(8)
+      setTimer(300);
     } else if (param == "level-3") {
       setData(Data3);
+      setMinus(3);
+      setPoint(8);
+      setTimer(300);
     } else {
       console.error("gagal");
     }
@@ -89,7 +100,7 @@ const Kuis = () => {
             timerProgressBar: true,
             padding: "2em",
             showConfirmButton: false,
-            color: "#716add",
+            color: "#198754",
             background: "#fff url(/images/trees.png)",
             backdrop: `
               rgba(0,0,123,0.4)
@@ -103,18 +114,18 @@ const Kuis = () => {
           setArray(Array + 1);
           setAkurasi(Akurasi + 0);
           setNomor(Nomor + 1);
-          setPoint(Point - 2);
+          setPoint(Point - Minus);
           setJawaban("");
           console.warn("salah");
           Swal.fire({
             title: `Jawaban Kamu Salah`,
-            html: `Skor kamu - 2 <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
+            html: `Skor kamu - ${Minus} <br><br> Jawaban yang Benar adalah <b>${Data?.[Array]?.jawaban}</b>`,
             width: 500,
             timer: 2500,
             timerProgressBar: true,
             padding: "2em",
             showConfirmButton: false,
-            color: "#716add",
+            color: "#dc3545",
             background: "#fff url(/images/trees.png)",
             backdrop: `
               rgba(0,0,123,0.4)
@@ -171,6 +182,7 @@ const Kuis = () => {
                 type="circle"
                 style={{ color: "white" }}
                 trailColor="black"
+                className="text-white"
                 percent={Progres}
               />
             </div>

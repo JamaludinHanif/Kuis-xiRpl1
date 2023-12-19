@@ -65,19 +65,19 @@ const PilihLevel = () => {
               <div className="lg:flex lg:flex-row lg:justify-between sm:flex-col lg:mt-24 mt-14">
                 <div
                   onClick={() => showModal(1)}
-                  className="w-40 h-36 m-auto mt-8 rounded-xl shadow-lg bg-ping flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="lg:w-40 w-full h-36 m-auto mt-8 rounded-xl shadow-lg bg-ping flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">1</p>
                 </div>
                 <div
                   onClick={() => showModal(2)}
-                  className="w-40 h-36 m-auto mt-8 rounded-xl shadow-lg bg-blue-800 flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="lg:w-40 w-full h-36 m-auto mt-8 rounded-xl shadow-lg bg-blue-800 flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">2</p>
                 </div>
                 <div
                   onClick={() => showModal(3)}
-                  className="w-40 h-36 m-auto mt-8 rounded-xl shadow-lg bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
+                  className="lg:w-40 w-full h-36 m-auto mt-8 rounded-xl shadow-lg bg-red-600 flex hover:opacity-75 cursor-pointer items-center justify-center"
                 >
                   <p className="text-3xl font-Silkscreen text-white">3</p>
                 </div>
@@ -112,10 +112,34 @@ const PilihLevel = () => {
                     <>( Sulit Banget )</>
                   ) : null}
                 </p>
+                <div className="mt-7 font-semibold">
+                  {Jenis == 1 ? (
+                    <>
+                      <p className="mt-1">- Jumlah 15 Soal</p>
+                      <p className="mt-1">- Skor Awal 5 Point</p>
+                      <p className="mt-1">- Pengurangan Skor -2</p>
+                      <p className="mt-1">- Waktu pengerjaan 6 menit</p>
+                    </>
+                  ) : Jenis == 2 ? (
+                    <>
+                      <p className="mt-1">- Jumlah 15 Soal</p>
+                      <p className="mt-1">- Skor Awal 8 Point</p>
+                      <p className="mt-1">- Pengurangan Skor -2</p>
+                      <p className="mt-1">- Waktu pengerjaan 6 menit</p>
+                    </>
+                  ) : Jenis == 3 ? (
+                    <>
+                      <p className="mt-1">- Jumlah 15 Soal</p>
+                      <p className="mt-1">- Skor Awal 8 Point</p>
+                      <p className="mt-1">- Pengurangan Skor -3</p>
+                      <p className="mt-1">- Waktu pengerjaan 6 menit</p>
+                    </>
+                  ) : null}
+                </div>
               </div>
               <div
                 onClick={() => Navigasi()}
-                className="bg-blue-600 py-2 rounded-lg mt-10 hover:opacity-80 cursor-pointer"
+                className="bg-blue-600 py-2 rounded-lg mt-7 hover:opacity-80 cursor-pointer"
               >
                 <p className="text-white font-semibold text-center text-lg">
                   Lanjutkan
