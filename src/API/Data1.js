@@ -34,7 +34,7 @@ export const Data1 = [
   {
     id: 5,
     soal: "Benda kecil apa yang bisa ngeluarin orang? ",
-    jawaban: "belrumah",
+    jawaban: "bel",
     jawaban2: "belrumah",
     type: 2,
     point: 8,
@@ -58,8 +58,8 @@ export const Data1 = [
   {
     id: 8,
     soal: "Jumlah propinsi di Indonesia? .... provinsi",
-    jawaban: "34",
-    jawaban2: "tigapuluhempat",
+    jawaban: "38",
+    jawaban2: "tigapuluhdelapan",
     type: 1,
     point: 6,
   },
@@ -75,7 +75,7 @@ export const Data1 = [
     id: 10,
     soal: "Nama kerajaan Islam pertama di Indonesia?",
     jawaban: "pasai",
-    jawaban2: "samudrapasai",
+    jawaban2: "samuderapasai",
     type: 1,
     point: 6,
   },

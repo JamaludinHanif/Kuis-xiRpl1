@@ -25,7 +25,7 @@ export const Data3 = [
   },
   {
     id: 4,
-    soal: "apa sila ke empat dari panca sila?",
+    soal: "apa sila ke empat dari pancasila?",
     jawaban:
       "kerakyatanyangdipimpinolehhikmatkebijaksanaandalampermusyawaratanperwakilan",
     jawaban2:
@@ -61,7 +61,7 @@ export const Data3 = [
     id: 8,
     soal: "siapakah presiden ke dua di indonesia?",
     jawaban: "suharto",
-    jawaban2: "bapaksuharto",
+    jawaban2: "soeharto",
     type: 1,
     point: 6,
   },
