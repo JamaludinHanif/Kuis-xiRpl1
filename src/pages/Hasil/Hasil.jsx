@@ -190,9 +190,9 @@ const Hasil = () => {
                       <p className="font-semibold text-blue-600 text-lg text-center">
                         {Skor < 40 ? (
                           <>Yawdah sihh 🤓🤏</>
-                        ) : Skor < 60 ? (
+                        ) : Skor < 65 ? (
                           <>Cihuyyy 😁🤟</>
-                        ) : Skor > 60 ? (
+                        ) : Skor > 65 ? (
                           <>Gacor Kang 😎👍</>
                         ) : null}
                       </p>

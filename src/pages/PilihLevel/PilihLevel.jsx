@@ -32,15 +32,15 @@ const PilihLevel = () => {
   const { pathname } = useLocation();
 
   const Navigasi = () => {
-    if (Jenis == 2 || Jenis == 3) {
-      message.info("Level masih dalam tahap pengembangan");
-    } else {
+    // if (Jenis == 2 || Jenis == 3) {
+    //   message.info("Level masih dalam tahap pengembangan");
+    // } else {
       setIsLoading(true);
       setTimeout(() => {
         navigate(`/kuis/level-${Jenis}`);
         setIsLoading(false);
       }, 2000);
-    }
+    // }
   };
 
   useEffect(() => {

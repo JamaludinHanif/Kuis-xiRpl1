@@ -29,6 +29,32 @@ const Login = () => {
   const [IsLoading, setIsLoading] = useState(false);
   const [IsLoading2, setIsLoading2] = useState(false);
 
+  const getUser = () => {
+    fetch("https://sheetdb.io/api/v1/i5ndj7belunji")
+      .then((response) => response.json())
+      .then((data) => console.log("ini user", data));
+  };
+
+  const createUser = () => {
+    fetch("https://sheetdb.io/api/v1/i5ndj7belunji", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: [
+          {
+            nama: `${Nama}`,
+            kelas: `${Kelas}`,
+          },
+        ],
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
+
   //   function login
   const login = () => {
     setIsLoading2(true);
@@ -44,6 +70,7 @@ const Login = () => {
       } else {
         sessionStorage.setItem("nama", Nama);
         sessionStorage.setItem("kelas", Kelas);
+        createUser();
         setIsLoading(true);
         setTimeout(() => {
           navigate("/rules");
@@ -55,6 +82,7 @@ const Login = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    getUser();
   }, [pathname]);
 
   return (
