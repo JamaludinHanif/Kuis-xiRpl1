@@ -11,7 +11,7 @@ export const Data2 = [
     id: 2,
     soal: "Bahan bakar kereta api adalah",
     jawaban: "batubara",
-    jawaban2: "batubara",
+    jawaban2: "bara",
     type: 1,
     point: 6,
   },
@@ -58,7 +58,7 @@ export const Data2 = [
   {
     id: 8,
     soal: "siapakah penemu mesin uap",
-    jawaban: "watt",
+    jawaban: "jameswat",
     jawaban2: "jameswatt",
     type: 1,
     point: 6,

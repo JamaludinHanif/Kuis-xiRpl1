@@ -52,8 +52,8 @@ export const Data3 = [
   {
     id: 7,
     soal: "tentara apa yang ukurannya kecil kecil?",
-    jawaban: "sentarasekutu",
-    jawaban2: "sentarasekutu",
+    jawaban: "tentarasekutu",
+    jawaban2: "tentarasekutu",
     type: 2,
     point: 8,
   },

@@ -189,11 +189,11 @@ const Hasil = () => {
                     <div className="bg-white border border-blue-600 lg:w-2/12 w-1/2 m-auto rounded-lg py-2">
                       <p className="font-semibold text-blue-600 text-lg text-center">
                         {Skor < 40 ? (
-                          <>Yawdah sihh 🤓🤏</>
+                          <>Skor Terendah 🤓🤏</>
                         ) : Skor < 65 ? (
-                          <>Cihuyyy 😁🤟</>
+                          <>Skor Menengah 😁🤟</>
                         ) : Skor > 65 ? (
-                          <>Gacor Kang 😎👍</>
+                          <>Skor Tertinggi 😎👍</>
                         ) : null}
                       </p>
                     </div>
